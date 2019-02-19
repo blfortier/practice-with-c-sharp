@@ -9,7 +9,7 @@ namespace StackOverFlowPost
     {
         public string _title { get; set; }
         public string _description { get; set; }
-        public DateTime _created { get; set; }
+        public DateTime _created { get; }
         private int _votes;
 
         public Post()
