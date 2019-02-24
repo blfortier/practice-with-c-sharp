@@ -10,18 +10,18 @@ namespace TicTacToeGame
     {
         static void Main(string[] args)
         {
-            Dictionary<int, string> board = new Dictionary<int, string>()
-                    {
-                        {1, " "},
-                        {2, " "},
-                        {3, " "},
-                        {4, " "},
-                        {5, " "},
-                        {6, " "},
-                        {7, " "},
-                        {8, " "},
-                        {9, " "}
-                    };
+            //Dictionary<int, string> board = new Dictionary<int, string>()
+            //        {
+            //            {1, " "},
+            //            {2, " "},
+            //            {3, " "},
+            //            {4, " "},
+            //            {5, " "},
+            //            {6, " "},
+            //            {7, " "},
+            //            {8, " "},
+            //            {9, " "}
+            //        };
 
             DisplayBoard(board);
 
@@ -58,9 +58,7 @@ namespace TicTacToeGame
 
         }
 
-
-
-        public static void DisplayBoard(Dictionary<int, string> board)
+        public static void DisplayBoard()
         {
             var topAndBottom = "     |     |    ";
             var connector = "     |     |    \n-----+-----+-----\n     |     |    ";
@@ -73,6 +71,7 @@ namespace TicTacToeGame
             Console.WriteLine(connector);
             Console.WriteLine("  {0}  |  {1}  |  {2}  ", board[7], board[8], board[9]);
             Console.WriteLine(topAndBottom);
+
             Console.WriteLine();
         }
     }

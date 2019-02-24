@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0F39D792-2E50-4202-8078-A9AAAEB158B7}</ProjectGuid>
+    <ProjectGuid>{763AFF84-A74F-49EC-A883-CF7930AB5BF1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TicTacToeGame</RootNamespace>
-    <AssemblyName>TicTacToeGame</AssemblyName>
+    <RootNamespace>Exception</RootNamespace>
+    <AssemblyName>Exception</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
