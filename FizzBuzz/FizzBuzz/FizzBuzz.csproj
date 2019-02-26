@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0F39D792-2E50-4202-8078-A9AAAEB158B7}</ProjectGuid>
+    <ProjectGuid>{47B84319-79EA-449A-AF1F-FF35B40901F0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TicTacToeGame</RootNamespace>
-    <AssemblyName>TicTacToeGame</AssemblyName>
+    <RootNamespace>FizzBuzz</RootNamespace>
+    <AssemblyName>FizzBuzz</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

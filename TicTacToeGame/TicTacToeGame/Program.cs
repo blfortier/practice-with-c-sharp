@@ -10,18 +10,19 @@ namespace TicTacToeGame
     {
         static void Main(string[] args)
         {
-            //Dictionary<int, string> board = new Dictionary<int, string>()
-            //        {
-            //            {1, " "},
-            //            {2, " "},
-            //            {3, " "},
-            //            {4, " "},
-            //            {5, " "},
-            //            {6, " "},
-            //            {7, " "},
-            //            {8, " "},
-            //            {9, " "}
-            //        };
+            Dictionary<int, string> board = new Dictionary<int, string>()
+            {
+                {1, " "},
+                {2, " "},
+                {3, " "},
+                {4, " "},
+                {5, " "},
+                {6, " "},
+                {7, " "},
+                {8, " "},
+                {9, " "}
+            };
+          
 
             DisplayBoard(board);
 
@@ -34,31 +35,39 @@ namespace TicTacToeGame
             // if(board.Contains(new KeyValuePair<int, string>(4, null)))
             //      Console.WriteLine("Sorry, that spot is taken. Try another cell.");             
             //  board[4] = "X";
-            //  Console.WriteLine(board[4]);
-
+            //  Console.WriteLine(board[4]);     
 
         }
 
-        public static void ImportBoard(string[] moves, Dictionary<int, string> places)
+        public static void ImportBoard(string[] moves, Dictionary<int, string> board)
         {
             List<int> player1Moves = new List<int>();
             List<int> player2Moves = new List<int>();
 
             for (var i = 0; i < moves.Length; i++)
             {
-                places[i + 1] = moves[i];
+                board[i + 1] = moves[i];
 
-                //if (i % 2 == 0)
-                //    player1Moves.Add(places.Keys)
-
+                if (i % 2 == 0)
+                    player1Moves.Add(Array.IndexOf(moves, moves[i]));
+                else
+                    player2Moves.Add(Array.IndexOf(moves, moves[i]));
             }
 
-            foreach (KeyValuePair<int, string> item in places)
+            foreach (KeyValuePair<int, string> item in board)
                 Console.WriteLine("Cell: {0}, Token: {1} ", item.Key, item.Value);
+
+            foreach (var move in player1Moves)
+                Console.WriteLine("Player 1 moves: {0}", player1Moves);
+
+            foreach (var move in player2Moves)
+                Console.WriteLine("Player 2 moves: {0}", player2Moves);
+
+
 
         }
 
-        public static void DisplayBoard()
+        public static void DisplayBoard(Dictionary<int, string> board)
         {
             var topAndBottom = "     |     |    ";
             var connector = "     |     |    \n-----+-----+-----\n     |     |    ";
