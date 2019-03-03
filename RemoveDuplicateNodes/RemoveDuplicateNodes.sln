@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveDuplicateNodes", "RemoveDuplicateNodes\RemoveDuplicateNodes.csproj", "{93327887-7EE7-47C3-BE21-5067EF4498B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93327887-7EE7-47C3-BE21-5067EF4498B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93327887-7EE7-47C3-BE21-5067EF4498B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93327887-7EE7-47C3-BE21-5067EF4498B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93327887-7EE7-47C3-BE21-5067EF4498B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27BBCC69-CC1D-445D-A4F0-2E288A696885}
+	EndGlobalSection
+EndGlobal
