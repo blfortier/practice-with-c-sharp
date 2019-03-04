@@ -5,27 +5,6 @@ using System.Text;
 
 namespace BallBounce
 {
-    public class BouncingBall
-    {
-        public static int bouncingBall(double height, double bounceRate, double windowHeight)
-        {
-            if (height < 0 || height < windowHeight || bounceRate <= 0 || bounceRate >= 1)
-                return -1;
-
-            // Make sure the first initial drop past
-            // the window is counted
-            var bounce = 1;
-
-            do
-            {
-                height = height * bounceRate;
-                bounce++;
-
-            } while (height > windowHeight);
-
-            return bounce;
-        }
-    }
 
     class Program
     {

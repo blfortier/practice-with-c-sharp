@@ -21,7 +21,6 @@ namespace PrimeNumbers
                 int data = Int32.Parse(Console.ReadLine());
                 result = IsPrime(data);
                 Console.WriteLine(result);
-
             }
 
         }
@@ -29,23 +28,23 @@ namespace PrimeNumbers
         private static string IsPrime(int data)
         {
             string message;
-            bool isPrime;
+            bool isPrime = false;
 
-            if (data == 1)
+            if (data == 1 || data % 2 == 0)
                 isPrime = false;
+
             if (data == 2)
                 isPrime = true;
-            
+
             for (int i = 3; i < data; i++)
             {
                 if (data % i == 0)
                     isPrime = false;
             }
 
-            isPrime = true;
 
 
-            return message = isPrime ? "Prime" : "Not prime";
+             return message = isPrime ? "Prime" : "Not prime";
         }
     }
 }
