@@ -4,47 +4,35 @@ using System.Linq;
 using System.Text;
 
 namespace PrimeNumbers
-{
-  
+{  
     class Program
-    {
-     
+    {     
         static void Main(string[] args)
         {
             Console.WriteLine("Enter number of test cases: ");
             var input = Convert.ToInt32(Console.ReadLine());
 
-            string result;
-
             while (input-- > 0)
             {
                 int data = Int32.Parse(Console.ReadLine());
-                result = IsPrime(data);
-                Console.WriteLine(result);
-            }
-
+                IsPrime(data);               
+            }            
         }
 
-        private static string IsPrime(int data)
+        private static void IsPrime(int data)
         {
-            string message;
-            bool isPrime = false;
-
-            if (data == 1 || data % 2 == 0)
-                isPrime = false;
-
-            if (data == 2)
-                isPrime = true;
-
-            for (int i = 3; i < data; i++)
+            bool isPrime = true;            
+            
+            for (var i = 2; i <= Math.Sqrt(data); i++)
             {
                 if (data % i == 0)
+                {
                     isPrime = false;
+                    break;
+                }
             }
 
-
-
-             return message = isPrime ? "Prime" : "Not prime";
+            Console.WriteLine(isPrime ? "Prime." : "Not prime.");
         }
     }
 }
