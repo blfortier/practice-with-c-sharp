@@ -31,23 +31,21 @@ namespace LibraryFee
             var dueDay = dueDate[1];
             var dueYear = dueDate[2];
 
+            if (returnedYear > dueYear)
+                return 10000;
+
             if (returnedYear == dueYear)
             {
                 if (returnedMonth == dueMonth)
                 {
-                    if (returnedDay == dueDay || returnedDay < dueDay)
-                        return 0;
-                    else if (returnedDay > dueDay)
-                        return (15 * (dueDay - returnedDay));
+                    if (returnedDay > dueDay)
+                        return (15 * (returnedDay - dueDay));
                 }
                 else if (returnedMonth > dueMonth)
                     return 500 * (returnedMonth - dueMonth);
             }
-            else if (returnedYear > dueYear)
-                return 10000;
 
-            return -1;
-
+            return 0;
         }
     }
 }
