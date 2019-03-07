@@ -19,7 +19,7 @@ namespace BallBounce
             Console.Write("Window height: ");
             var window = Convert.ToDouble(Console.ReadLine());
 
-            var numBounces = BouncingBall.bouncingBall(throwHeight, rateOfBounce, window);
+            var numBounces = BouncingBall.BallBounces(throwHeight, rateOfBounce, window);
             Console.WriteLine(numBounces);
         }
     }

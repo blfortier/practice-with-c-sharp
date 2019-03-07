@@ -2,24 +2,28 @@
 {
     class BouncingBall
     {
-        public static int bouncingBall(double height, double bounceRate, double windowHeight)
+        public static int BallBounces(double height, double bounceRate, double windowHeight)
         {
-
+            // Everytime the ball bounces, it will pass the 
+            // window twice, EXCEPT for the initial drop
+            // to offset this --> -1 + 2(increment value below) = 1
             int windowPass = -1;
 
-            if (height < 0 || height < windowHeight || bounceRate <= 0 || bounceRate >= 1)
+            if (IsInvalidExp(height, windowHeight, bounceRate))
                 return windowPass;
             do
             {
                 height *= bounceRate;
-                // windowPass needs to be incremented by 
-                // 2 in order to account for the mom seeing the
-                // ball pass by the window
                 windowPass += 2;
 
             } while (height > windowHeight);
 
-            return windowPass;
+            return windowPass;      
         }
-}
+
+        private static bool IsInvalidExp(double h, double wh, double br)
+        {
+            return (h < 0 || h < wh || h == wh || br <= 0 || br >= 1);
+        }
+    }
 }

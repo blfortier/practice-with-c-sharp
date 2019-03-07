@@ -9,25 +9,25 @@ namespace FizzBuzz
     [TestFixture]
     public class FizzBuzzTests
     {
-        [TestCase("Fizz", 3)]
-        [TestCase("Fizz", 6)]
-        [TestCase("Buzz", 5)]
-        [TestCase("FizzBuzz", 15)]
-        [TestCase("FizzBuzz", 30)]
-        [TestCase("Buzz", 10)]
-        [TestCase("", 7)]
-        public void TestFizzBuzz(string expected, int num)
-        {
-            Assert.AreEqual(expected, FizzBuzz(num));
-        }
+       [Test]
+       public void TestFizzBuzz()
+       {
+            Assert.AreEqual("Fizz", FizzBuzz(3));
+            Assert.AreEqual("Fizz", FizzBuzz(12));
+            Assert.AreEqual("Buzz", FizzBuzz(5));
+            Assert.AreEqual("Buzz", FizzBuzz(10));
+            Assert.AreEqual("FizzBuzz", FizzBuzz(45));
+            Assert.AreEqual("FizzBuzz", FizzBuzz(15));
 
-        private string FizzBuzz(int num)
+       }
+
+        private string FizzBuzz(int number)
         {
-            if (num % 15 == 0)
+            if (number % 15 == 0)
                 return "FizzBuzz";
-            else if (num % 3 == 0)
+            else if (number % 3 == 0)
                 return "Fizz";
-            else if (num % 5 == 0)
+            else if (number % 5 == 0)
                 return "Buzz";
             else
                 return "";
