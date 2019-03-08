@@ -8,12 +8,19 @@ namespace BoardGame
     public class Board
     {
         private int _height;
-        private int _width;        
-        
+        private int _width;          
+
         public Board(int height, int width)
         {
-            this._height = height;
-            this._width = width;
+            if (!IsHeightValid(height))
+                throw new ArgumentOutOfRangeException("height", "Height must be between 2 and 30");
+            else
+                this._height = height;
+
+            if (!IsWidthValid(width))
+                throw new ArgumentOutOfRangeException("width", "Width must be between 2 and 30");
+            else
+                this._width = width;
 
             DrawBoard(height, width);
         }
@@ -27,9 +34,7 @@ namespace BoardGame
                 Console.Write("|  ");
                 
                 for (j = 0; j < width; j++)
-                {
                     Console.Write("|  ");                      
-                }
 
                 if(j == width)
                 {
@@ -44,7 +49,17 @@ namespace BoardGame
 
             Console.WriteLine();
 
-         }
+        }
+
+        private bool IsHeightValid(int height)
+        {
+            return height > 2 && height < 30;
+        }
+
+        private bool IsWidthValid(int width)
+        {
+            return width > 2 && width < 30;
+        }
     }
 }
 

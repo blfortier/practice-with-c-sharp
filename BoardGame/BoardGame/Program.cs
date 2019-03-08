@@ -9,9 +9,8 @@ namespace BoardGame
     {
         static void Main(string[] args)
         {
-
-            var height = 7;
-            var width = 9;
+            var height = 5;
+            var width = 8;
 
             var game = new Board(height, width);
         }       
