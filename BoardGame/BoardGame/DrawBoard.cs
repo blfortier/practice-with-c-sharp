@@ -12,53 +12,43 @@ namespace BoardGame
 
         public Board(int height, int width)
         {
-            if (!IsHeightValid(height))
-                throw new ArgumentOutOfRangeException("height", "Height must be between 2 and 30");
-            else
-                this._height = height;
-
-            if (!IsWidthValid(width))
-                throw new ArgumentOutOfRangeException("width", "Width must be between 2 and 30");
-            else
-                this._width = width;
+            _height = height;
+            _width = width;
 
             DrawBoard(height, width);
         }
 
         public void DrawBoard(int height, int width)
         {
-            int j;
-           
+            DrawTopBorder(width);
+
             for (var i = 0; i < height; i++)       
-            {
+                DrawCells(width);
+        }       
+
+        public void DrawTopBorder(int width)
+        {
+            for (var i = 0; i < width; i++)
+                Console.Write("+--");
+            Console.WriteLine("+");
+        }
+
+        public void DrawCells(int width)
+        {
+            int j;
+
+            Console.Write("|  ");
+            for (j = 0; j < width; j++)
                 Console.Write("|  ");
-                
-                for (j = 0; j < width; j++)
-                    Console.Write("|  ");                      
 
-                if(j == width)
-                {
-                    Console.WriteLine();
-                    for (var t = 0; t < width; t++)
-                        Console.Write("+--");
-                }
-
-                Console.Write("+");
-                Console.WriteLine();             
+            if (j == width)
+            {
+                Console.WriteLine();
+                for (var i = 0; i < width; i++)
+                    Console.Write("+--");
             }
 
-            Console.WriteLine();
-
-        }
-
-        private bool IsHeightValid(int height)
-        {
-            return height > 2 && height < 30;
-        }
-
-        private bool IsWidthValid(int width)
-        {
-            return width > 2 && width < 30;
+            Console.Write("+\n");
         }
     }
 }
