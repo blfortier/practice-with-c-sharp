@@ -9,13 +9,16 @@ namespace BoardGame
     {
         static void Main(string[] args)
         {
+            //Console.Write("Height of board: ");
+            //var height = Convert.ToInt32(Console.ReadLine());
+
+            //Console.Write("Width of board: ");
+            //var width = Convert.ToInt32(Console.ReadLine());
+            
             Board board;
 
-            Console.Write("Height of board: ");
-            var height = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Width of board: ");
-            var width = Convert.ToInt32(Console.ReadLine());
+            var height = 4;
+            var width = 6;
 
             if (IsHeightAndWidthValid(height, width))
                 board = new Board(height, width);
