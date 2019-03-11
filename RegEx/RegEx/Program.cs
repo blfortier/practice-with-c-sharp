@@ -21,8 +21,7 @@ namespace RegEx
             Console.Write("How many entries? ");
             int N = Convert.ToInt32(Console.ReadLine());
 
-            // var containsGmail = new List<string>();
-            var namesAndEmails = new Dictionary<string, string>();
+             var containsGmail = new List<string>();
 
             for (int NItr = 0; NItr < N; NItr++)
             {
@@ -32,26 +31,22 @@ namespace RegEx
                 string firstName = firstNameEmailID[0];           
                 string emailID = firstNameEmailID[1];
 
-                namesAndEmails.Add(firstName, emailID);
-
-                //if (IsMatch(emailID, firstName))
-                //{
-                //    containsGmail.Add(firstName);
-                //    Console.WriteLine("name added...");
-                //}
+                if (IsMatch(emailID))
+                {
+                    containsGmail.Add(firstName);
+                }
             }
-                      
 
-            foreach (var name in namesAndEmails)
+            containsGmail.Sort();
+            foreach (var name in containsGmail)
             {
                 Console.WriteLine(name);
             }
-
         }
 
-        public static bool IsMatch(string email, string name)
+        static bool IsMatch(string email)
         {
-            Regex reg = new Regex(@"/(@)([gmail])\w+/g");
+            Regex reg = new Regex(@"(gmail)");
 
             Match result = reg.Match(email);
             if (result.Success)
