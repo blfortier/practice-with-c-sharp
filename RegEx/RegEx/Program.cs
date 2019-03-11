@@ -46,7 +46,7 @@ namespace RegEx
 
         static bool IsMatch(string email)
         {
-            Regex reg = new Regex(@"(gmail)");
+            Regex reg = new Regex(@"(@)(gmail)");
 
             Match result = reg.Match(email);
             if (result.Success)

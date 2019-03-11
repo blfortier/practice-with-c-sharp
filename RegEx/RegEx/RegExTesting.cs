@@ -22,11 +22,12 @@ namespace RegEx
         {
             Assert.AreEqual("no", CheckEmail("lauren", "horses4life@email.com"));
             Assert.AreEqual("no", CheckEmail("joe", "joeschmoe@aol.com"));
+            Assert.AreEqual("no", CheckEmail("susan", "susan@susangmail.com"));
         }
 
         private string CheckEmail(string name, string email)
         {
-            var regex = new Regex("(gmail)");
+            var regex = new Regex("(@)(gmail)");
 
             Match result = regex.Match(email);
             if (result.Success)
