@@ -1,0 +1,2 @@
+﻿INSERT INTO DirectMarketing
+VALUES (1,1,8,A,12/12/2020,123000.00);
