@@ -33,13 +33,11 @@ namespace CompareTriplets
 
             for (var i = 0; i < a.Count; i++)
             {
-                for (var j = 0; j < b.Count; j++)
-                {
-                    if (a[i] > b[j])
-                        alicePoints++;
-                    else if (a[i] < b[j])
-                        bobPoints++;
-                }
+                if (a[i] > b[i])
+                    alicePoints++;
+                else if (a[i] < b[i])
+                    bobPoints++;
+               
             }
 
             points.Insert(0, alicePoints);
