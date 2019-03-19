@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquareMatrx", "SquareMatrx\SquareMatrx.csproj", "{323FA01F-2226-4776-874A-C7A86770AEA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{323FA01F-2226-4776-874A-C7A86770AEA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{323FA01F-2226-4776-874A-C7A86770AEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{323FA01F-2226-4776-874A-C7A86770AEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{323FA01F-2226-4776-874A-C7A86770AEA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E685E9EE-60C1-4EEB-9D1B-894EBA47D29A}
+	EndGlobalSection
+EndGlobal
