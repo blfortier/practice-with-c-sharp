@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{680A6FB3-2355-4B25-95EC-EF193F60797F}</ProjectGuid>
+    <ProjectGuid>{15E2CD79-95FD-4DEC-B959-559DA160BB91}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BoardGame</RootNamespace>
-    <AssemblyName>BoardGame</AssemblyName>
+    <RootNamespace>CodeReview</RootNamespace>
+    <AssemblyName>CodeReview</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,8 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeReview.cs" />
-    <Compile Include="DrawBoard.cs" />
+    <Compile Include="DrawDynamicBoard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
