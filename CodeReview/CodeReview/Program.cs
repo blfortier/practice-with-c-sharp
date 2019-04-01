@@ -9,18 +9,15 @@ namespace CodeReview
     {
         static void Main(string[] args)
         {
-            // BF -- I know r stands for row, but somebody reading
-            // your code may not realize this. row would be a good choice
-            Console.WriteLine("Enter the number of rows: ");
-            int r = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Enter the number of rows: ");
+            //int row = Convert.ToInt32(Console.ReadLine());
 
-            // BF -- I know c stands for column, but somebody reading
-            // your code may not realize this. column would be a good choice
-            Console.WriteLine("Enter the number of columns: ");
-            int c = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Enter the number of columns: ");
+            //int column = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("DrawBoard3 Pattern: ");
-            DrawDynamicBoard.DrawBoard3(r, c);
+            Console.WriteLine("Your board game: ");
+            StartGame newGame = new StartGame("X", "O", 6, 7); 
+           // DrawDynamicBoard.DrawBoard(row, column);
         }
     }
 }

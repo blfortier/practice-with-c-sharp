@@ -7,7 +7,7 @@ namespace BoardGame
 {
     class NewGame
     {
-        public string player1Token;
-        public string player2Token;
+       
+
     }
 }

@@ -21,13 +21,12 @@ namespace BoardGame
             // var height = 4;
             // var width = 6;
 
+           // NewGame game = new NewGame("X", "O", 4, 4);
+
             if (IsHeightAndWidthValid(height, width))
                 board = new Board(height, width);
             else
                 Console.WriteLine("Height and width must be between 2 and 30.\n");
-
-
-
         }
 
         public static bool IsHeightAndWidthValid(int height, int width)
