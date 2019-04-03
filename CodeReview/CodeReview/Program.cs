@@ -16,8 +16,8 @@ namespace CodeReview
             //int column = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Your board game: ");
-            StartGame newGame = new StartGame("X", "O", 6, 7); 
-           // DrawDynamicBoard.DrawBoard(row, column);
+            Game newGame = new Game("X", "O", 6, 7);
+            
         }
     }
 }

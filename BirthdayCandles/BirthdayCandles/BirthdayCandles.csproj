@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{15E2CD79-95FD-4DEC-B959-559DA160BB91}</ProjectGuid>
+    <ProjectGuid>{0AF58A0E-A606-46D4-9602-AE7FABDBCBA0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CodeReview</RootNamespace>
-    <AssemblyName>CodeReview</AssemblyName>
+    <RootNamespace>BirthdayCandles</RootNamespace>
+    <AssemblyName>BirthdayCandles</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,10 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Game.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

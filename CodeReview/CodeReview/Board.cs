@@ -5,8 +5,9 @@ using System.Text;
 
 namespace CodeReview
 {
-    class DrawDynamicBoard
+    class Board
     {    
+
         private static bool isNotValid(int rows, int columns)
         {
             return rows < 2 || rows > 30 || columns < 2 || columns > 30;
