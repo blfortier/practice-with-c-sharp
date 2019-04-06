@@ -7,37 +7,43 @@ namespace CodeReview
 {
     class Game
     {
-        protected string player1Token;
-        protected string player2Token;
-        protected string currentToken;
-        protected string winner;
-        private int moveCount;
-        public string[,] board;
+        protected char player1;
+        protected char player2;
+        protected char currentToken;
+        protected char winner;
+        private int moveCount = 0;
+        public Board gameBoard;
 
-        public Game(string player1, string player2, int row, int col)
+        public Game(char player1, char player2, int rows, int columns)
         {
-            this.player1Token = player1;
-            this.player2Token = player2;
-            this.winner = " ";
-            this.moveCount = 0;
-            this.board = SetBoard(row, col);
-           // Board.DrawBoard(row, col);
+            this.player1 = player1;
+            this.player2 = player2;
+            this.winner = ' ';
+            this.gameBoard = new Board(rows, columns);
         }
 
-        public string[,] SetBoard(int row, int col)
+        private bool CheckMoveValidity(int move)
         {
-            string[,] board = new string[row, col];
+            return (move < 0 || move > gameBoard.columns);
+        }
 
-            for (int rows = 0; rows < row; rows++)
+        public void ApplyMove(int move)
+        {
+            if (moveCount % 2 != 1)
+                currentToken = player1;
+            else
+                currentToken = player2;
+
+            if (CheckMoveValidity(move))
+                Console.WriteLine("Not a valid move..");
+            else
             {
-                for (int columns = 0; columns < col; columns++)
+                if (gameBoard.board[gameBoard.rows - 1, move] == ' ')
                 {
-                    board[rows, columns] = " ";
+                    gameBoard.board[gameBoard.rows - 1, move] = currentToken;
+                    moveCount++;
                 }
             }
-
-            return board;
         }
-
     }
 }

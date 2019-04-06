@@ -12,7 +12,7 @@ namespace TicTacToeGame
         {
             protected string[] board;
             protected string player1Token;
-            protected List<int> player1Moves ;
+            protected List<int> player1Moves;
             protected string player2Token;
             protected List<int> player2Moves;
             protected string winner;
