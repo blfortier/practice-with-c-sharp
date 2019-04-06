@@ -3,34 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CodeReview
+namespace ConnectFour
 {
     class Board
     {
         public int rows;
         public int columns;
         public char[,] board;
-        public Dictionary<int, int> columnCount;
        
         public Board(int rows, int columns)
         { 
             if (IsNotValid(rows, columns))
             {
                 Console.WriteLine("Please enter numbers between 2 and 30");
-                Console.WriteLine("Board not initialized...");
+                Console.WriteLine("Board not set...");
             }
             else
             {
                 this.rows = rows;
                 this.columns = columns;
+                this.board = SetBoard();
             }
-
-            this.board = SetBoard();
-
-            columnCount = new Dictionary<int, int>();
-            for (int dictKey = 0; dictKey < this.columns; dictKey++)
-                columnCount.Add(dictKey, 0);
-
         }
 
         private static bool IsNotValid(int rows, int columns)
@@ -53,6 +46,8 @@ namespace CodeReview
             return board;
         }
 
+        // I altered this method from the original that I 
+        // was given to be able to display the player's moves
         public void DrawBoard()
         {
             for (int i = 0; i < this.rows; i++)
@@ -70,8 +65,6 @@ namespace CodeReview
             }
 
             Console.WriteLine();            
-        }
-
-       
+        }       
     }
 }

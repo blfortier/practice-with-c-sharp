@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CodeReview
+namespace ConnectFour
 {
     class Program
     {
@@ -17,15 +17,17 @@ namespace CodeReview
 
             Console.WriteLine();
 
-            Game newGame = new Game('X', 'O', row, column);
-            newGame.gameBoard.SetBoard();
-            newGame.gameBoard.DrawBoard();
+            Game game = new Game('X', 'O', row, column);
+            game.gameBoard.SetBoard();
+            // newGame.gameBoard.DrawBoard();
 
-            newGame.ApplyMove(1);
-            Console.WriteLine();
-            newGame.gameBoard.DrawBoard();
+            game.ApplyMove(1);
+            game.ApplyMove(1);
+            game.ApplyMove(4);
+            game.ApplyMove(6);
+            game.ApplyMove(3);
 
-
+            game.gameBoard.DrawBoard();
         }
     }
 }
