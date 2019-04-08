@@ -15,8 +15,6 @@ namespace ConnectFour
             Console.WriteLine("Enter the number of columns: ");
             int column = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine();
-
             Game game = new Game('X', 'O', row, column);
             game.gameBoard.SetBoard();
           //  game.gameBoard.DrawBoard();
