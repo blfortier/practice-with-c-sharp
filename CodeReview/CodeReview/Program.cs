@@ -19,9 +19,17 @@ namespace ConnectFour
 
             Game game = new Game('X', 'O', row, column);
             game.gameBoard.SetBoard();
-            // newGame.gameBoard.DrawBoard();
+          //  game.gameBoard.DrawBoard();
 
-            game.gameBoard.DrawBoard();
+            game.ApplyMove(4, 1);
+            game.ApplyMove(2, 6);
+            game.ApplyMove(5, 1);
+            game.ApplyMove(6, 7);
+            game.ApplyMove(3, 7);
+            game.ApplyMove(6, 2);
+
+
+            game.gameBoard.DisplayMoves();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ConnectFour
         public int rows;
         public int columns;
         public char[,] board;
-       
+
         public Board(int rows, int columns)
         { 
             if (IsNotValid(rows, columns))
@@ -22,13 +22,27 @@ namespace ConnectFour
             {
                 this.rows = rows;
                 this.columns = columns;
-                this.board = SetBoard();
             }
         }
 
         private static bool IsNotValid(int rows, int columns)
         {
             return rows < 4 || rows > 30 || columns < 4 || columns > 30;
+        }
+
+        public char[,] SetBoard()
+        {
+            board = new char[this.rows, this.columns];
+
+            for (int row = 0; row < this.rows; row++)
+            {
+                for (int column = 0; column < this.columns; column++)
+                {
+                    board[row, column] = ' ';
+                }
+            }
+
+            return board;
         }
 
         public void DrawBoard()
@@ -49,6 +63,26 @@ namespace ConnectFour
             }
 
             Console.WriteLine();            
-        }       
+        }   
+        
+        public void DisplayMoves()
+        {
+            for (int i = 0; i < this.rows; i++)
+            {
+                string row1 = "| ";
+                string row2 = "";
+
+                for (int j = 0; j < this.columns; j++)
+                {
+                    row1 = row1 + board[i, j] + " | ";
+                    row2 = row2 + "+---";
+                }
+
+                Console.WriteLine(row1);
+                Console.WriteLine(row2 + "+");
+            }
+
+            Console.WriteLine();
+        }
     }
 }
