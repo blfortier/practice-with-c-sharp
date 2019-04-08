@@ -33,9 +33,11 @@ namespace ConnectFour
         public void ApplyMove(int colToAddMove)
         {
             _currentToken = (moveCount % 2 != 1) ? Player1 : Player2;
-                
+
             if (CheckMoveValidity(colToAddMove))
+            {
                 Console.WriteLine("Not a valid move..");
+            }
             else
             {
                 for (int rowBeingChecked = gameBoard.rows - 1; rowBeingChecked >= 0; rowBeingChecked--)
@@ -49,10 +51,10 @@ namespace ConnectFour
                     {
                         gameBoard.board[rowBeingChecked, colToAddMove] = _currentToken;
                         moveCount++;
-                      //  Console.WriteLine("moveCount: {0}", moveCount);
+                        //  Console.WriteLine("moveCount: {0}", moveCount);
                         break;
-                    }                  
-                }               
+                    }
+                }
             }
         }
     }
