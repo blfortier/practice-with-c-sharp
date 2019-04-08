@@ -31,21 +31,6 @@ namespace ConnectFour
             return rows < 4 || rows > 30 || columns < 4 || columns > 30;
         }
 
-        public char[,] SetBoard()
-        {
-            board = new char[this.rows, this.columns];
-
-            for (int row = 0; row < this.rows; row++)
-            {
-                for (int column = 0; column < this.columns; column++)
-                {
-                    board[row, column] = ' ';
-                }
-            }
-
-            return board;
-        }
-
         public void DrawBoard()
         {
             for (int i = 0; i < this.rows; i++)
