@@ -25,37 +25,25 @@ namespace ConnectFour
             this.gameBoard = new Board(rows, columns);
         }
 
-        private bool CheckMoveValidity(int move)
-        {
-            return (move < 0 || move > gameBoard.columns);
-        }
-
         public void ApplyMove(int colToAddMove)
         {
             _currentToken = (moveCount % 2 != 1) ? Player1 : Player2;
 
-            if (CheckMoveValidity(colToAddMove))
+            for (int rowBeingChecked = gameBoard.rows - 1; rowBeingChecked >= 0; rowBeingChecked--)
             {
-                Console.WriteLine("Not a valid move..");
-            }
-            else
-            {
-                for (int rowBeingChecked = gameBoard.rows - 1; rowBeingChecked >= 0; rowBeingChecked--)
+                if (gameBoard.board[0, colToAddMove] != ' ')
                 {
-                    if (gameBoard.board[0, colToAddMove] != ' ')
-                    {
-                        Console.WriteLine("Sorry, that column is full...");
-                        break;
-                    }
-                    else if (gameBoard.board[rowBeingChecked, colToAddMove] == ' ')
-                    {
-                        gameBoard.board[rowBeingChecked, colToAddMove] = _currentToken;
-                        moveCount++;
-                        //  Console.WriteLine("moveCount: {0}", moveCount);
-                        break;
-                    }
+                    Console.WriteLine("Sorry, that column is full...");
+                    break;
                 }
-            }
+                else if (gameBoard.board[rowBeingChecked, colToAddMove] == ' ')
+                {
+                    gameBoard.board[rowBeingChecked, colToAddMove] = _currentToken;
+                    moveCount++;
+                    //  Console.WriteLine("moveCount: {0}", moveCount);
+                    break;
+                }
+            }            
         }
     }
 }

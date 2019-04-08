@@ -46,8 +46,6 @@ namespace ConnectFour
             return board;
         }
 
-        // I altered this method from the original that I 
-        // was given to be able to display the player's moves
         public void DrawBoard()
         {
             for (int i = 0; i < this.rows; i++)
@@ -57,9 +55,10 @@ namespace ConnectFour
 
                 for (int j = 0; j < this.columns; j++)
                 {
-                    row1 = row1 + board[i, j] + " | ";
-                    row2 = row2 + "+---";
+                    row1 = row1 + " | ";
+                    row2 = row2 + "+--";
                 }
+
                 Console.WriteLine(row1);
                 Console.WriteLine(row2 + "+");
             }
