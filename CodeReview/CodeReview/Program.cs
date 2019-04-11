@@ -26,7 +26,6 @@ namespace ConnectFour
             game.ApplyMove(3, 7);
             game.ApplyMove(6, 2);
 
-
             game.gameBoard.DisplayMoves();
         }
     }
