@@ -13,8 +13,12 @@ namespace ArrayRotation
             int[] origArr = new int[6] { 1, 2, 3, 4, 5, 6};
           
 
-            Console.Write("Rotate array left by how many: ");
+            Console.Write("Rotate array by how many: ");
             var rotateLeftBy = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            Console.Write("Rotate array left or right? ");
+            var direction = Console.ReadLine();
             Console.WriteLine();
 
             Console.WriteLine("Original array: ");
@@ -25,28 +29,45 @@ namespace ArrayRotation
             Console.WriteLine();
 
             Console.WriteLine("Rotated array: ");
-            foreach (var item in RotateArray(origArr, rotateLeftBy))
+            foreach (var item in RotateArray(origArr, rotateLeftBy, direction))
             {
                 Console.Write(item);
             }
             Console.WriteLine();
         }
 
-        public static int[] RotateArray(int[] arr, int numSpacesToMove)
+        public static int[] RotateArray(int[] arr, int numSpacesToMove, string leftOrRight)
         {
             int maxIndex = arr.Length - 1;
 
-            for (int i = 0; i < numSpacesToMove; i++)
+            if (leftOrRight == "left" || leftOrRight == "L" || leftOrRight == "l")
             {
-                int temp = arr[0];
+                for (int i = 0; i < numSpacesToMove; i++)
+                {
+                    int temp = arr[0];
 
-                for (int j = 0; j < maxIndex; j++)
-                    arr[j] = arr[j + 1];
+                    for (int j = 0; j < maxIndex; j++)
+                        arr[j] = arr[j + 1];
 
-                arr[maxIndex] = temp;
+                    arr[maxIndex] = temp;
+                }
+
+                return arr;
             }
+            else 
+            {
+                for (int i = 0; i < numSpacesToMove; i++)
+                {
+                    int temp = arr[maxIndex];
 
-            return arr;
+                    for (int j = maxIndex; j > 0; j--)
+                        arr[j] = arr[j - 1];
+
+                    arr[0] = temp;
+                }
+
+                return arr;
+            }
         }
     }
 }
