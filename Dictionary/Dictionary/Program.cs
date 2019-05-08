@@ -10,16 +10,8 @@ namespace RansomNote
     {
         static void Main(string[] args)
         {
-            //string[] mn = Console.ReadLine().Split(' ');
-
-            //int m = Convert.ToInt32(mn[0]);
-
-            //int n = Convert.ToInt32(mn[1]);
-
-            //string[] magazine = Console.ReadLine().Split(' ');
             List<string> magazine = new List<string> { "two", "times", "three", "is", "not", "four"};
 
-            // string[] note = Console.ReadLine().Split(' ');
             List<string> note = new List<string> { "two", "times", "two", "is", "four"};
 
             checkMagazine(magazine, note);
