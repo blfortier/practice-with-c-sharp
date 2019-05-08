@@ -17,15 +17,15 @@ namespace RansomNote
             //int n = Convert.ToInt32(mn[1]);
 
             //string[] magazine = Console.ReadLine().Split(' ');
-            string[] magazine = new string[6] { "two", "times", "three", "is", "not", "four"};
+            List<string> magazine = new List<string> { "two", "times", "three", "is", "not", "four"};
 
             // string[] note = Console.ReadLine().Split(' ');
-            string[] note = new string[5]{ "two", "times", "two", "is", "four"};
+            List<string> note = new List<string> { "two", "times", "two", "is", "four"};
 
             checkMagazine(magazine, note);
         }
 
-        public static void checkMagazine(string[] magazine, string[] note)
+        public static void checkMagazine(List<string> magazine, List<string> note)
         {
 
             Dictionary<string, int> magazineWords = new Dictionary<string, int>();
