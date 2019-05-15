@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA90D3BA-B955-4884-987E-176525AB7F3F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SaladMaker</RootNamespace>
+    <AssemblyName>SaladMaker</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChickenSalad.cs" />
+    <Compile Include="DeluxeSalad.cs" />
+    <Compile Include="Ingredient.cs" />
+    <Compile Include="IngredientOptions\Broccoli.cs" />
+    <Compile Include="IngredientOptions\Carrots.cs" />
+    <Compile Include="IngredientOptions\Croutons.cs" />
+    <Compile Include="IngredientOptions\Egg.cs" />
+    <Compile Include="IngredientOptions\GrilledChicken.cs" />
+    <Compile Include="IngredientOptions\ItalianDressing.cs" />
+    <Compile Include="IngredientOptions\Lettuce.cs" />
+    <Compile Include="IngredientOptions\Mushroom.cs" />
+    <Compile Include="IngredientOptions\RanchDressing.cs" />
+    <Compile Include="IngredientOptions\RedOnion.cs" />
+    <Compile Include="IngredientOptions\Romaine.cs" />
+    <Compile Include="IngredientOptions\Salmon.cs" />
+    <Compile Include="IngredientOptions\SpringMix.cs" />
+    <Compile Include="IngredientOptions\Steak.cs" />
+    <Compile Include="IngredientOptions\ThousandIslandDressing.cs" />
+    <Compile Include="IngredientOptions\Tomato.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salad.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
