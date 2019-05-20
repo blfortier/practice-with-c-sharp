@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace GameOfLife
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             var board = new GameBoard();
 
-            board.SetInitialState();
-            board.DisplayBoard();
+            board.SetAllBoardCoordAndStateAsFalse();
+          //  board.DisplayBoard();
+
+         
         }
     }
 }
