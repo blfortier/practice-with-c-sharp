@@ -11,72 +11,50 @@ namespace GameOfLife.UnitTests
     public class GoLTests
     {
         private GameBoard _gameBoard;
-        private Coordinates _coords;
+        int row, column;
 
         [SetUp]
         public void TestFixtureSetup()
         {
             _gameBoard = new GameBoard();
-            // _coords = new Coordinates();
-            //  _gameBoard.SetInitialState();
         }
 
         [Test]
-        public void EnterOneRowAndColumn_ReturnCoordinatesObject()
+        public void EnterRowAndColumn_ReturnStateOfCell()
         {
-            _coords = new Coordinates(1, 5);
+            row = 2;
+            column = 4;
 
             var expected = false;
-            var actual = _gameBoard.GetStateOfParticularCellCoordinates(_coords);
+            var actual = _gameBoard.GetStateOfSpecificCell(row, column);
+
             Assert.AreEqual(expected, actual);
         }
 
-        //[Test]
-        //public void GetDictionaryOfCoords()
-        //{
-        //    var expected = _gameBoard.SetAllBoardCoordAndStateAsFalse();
-        //    Assert.();
-
-        //}
-
-
-        //[Test]
-        //public void SetUpInitialBoardWithCoords_AllCellStatesFalse()
-        //{
-
-        //}
-
         [Test]
-        public void ChooseOneCellAndTurnStateToTrue()
+        public void fStateOfCellIsFalse_SwitchToTrue()
         {
-            _coords = new Coordinates(4, 7);
+            row = 2;
+            column = 4;
 
             var expected = true;
-            var actual = _gameBoard.TurnStateOfCellToTrue(_coords);
+            var actual = _gameBoard.SwitchStateOfCell(row, column);
 
             Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void IfStateOfCellCoordsIsTrue_SwitchToFalse()
+        public void IfStateOfCellIsTrue_SwitchToFalse()
         {
-            _coords = new Coordinates(2, 5);
-            _coords.State = true;
+            row = 5;
+            column = 7;
+            _gameBoard.boardState[row, column] = true;
 
             var expected = false;
-            Assert.AreEqual(expected, _gameBoard.SwitchAllTrueStatesToFalseStates(_coords));
+            var actual = _gameBoard.SwitchStateOfCell(row, column);
+
+            Assert.AreEqual(expected, actual);
+
         }
-        
-        //[Test]
-        //public void ChooseOneCell_ReturnEmptyBoard()
-        //{
-        //    int row = 1;
-        //    int col = 2;
-
-        //    var expected = true;
-        //    var actual = _gameBoard.TurnStateOfCellToTrue(row, col);
-
-        //    Assert.AreEqual(expected, actual);
-        //}
     }
 }

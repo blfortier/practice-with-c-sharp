@@ -6,57 +6,46 @@ using System.Threading.Tasks;
 
 namespace GameOfLife
 {
-    public class GameBoard : Coordinates
+    public class GameBoard 
     {
-        public bool[,] boardState = new bool[8, 8];
-        public Dictionary<Coordinates, bool> boardCoords = new Dictionary<Coordinates, bool>();
+        private const int Rows = 10;
+        private const int Columns = 10;
+        public bool[,] boardState = new bool[Rows, Columns];
+        public bool isCellChecked = false;
 
-        public Dictionary<Coordinates, bool> SetAllBoardCoordAndStateAsFalse()
+        public GameBoard()
         {
-            for (int row = 0; row < boardState.GetLength(1); row++)
+            for (int row = 0; row < Rows; row++)
             {
-                for (int col = 0; col < boardState.GetLength(0); col++)
-                {
-                    var coords = new Coordinates(row, col);
-                    boardState[row, col] = coords.State;
-                    boardCoords.Add(coords, coords.State);
-                }
-            }
-            return boardCoords;
-        }
-  
-        public bool SwitchAllTrueStatesToFalseStates(Coordinates coords)
-        {
-            return coords.State = false;
-            
-        }
-
-        public void DisplayCoordinatesAndState()
-        {
-            foreach (var item in boardCoords)
-            {
-                Console.WriteLine("[{0}, {1}] : {2}", item.Key.Row, item.Key.Column, item.Value);
+                for (int col = 0; col < Columns; col++)
+                    boardState[row, col] = isCellChecked;                
             }
         }
 
-        public bool TurnStateOfCellToTrue(Coordinates coords)
+        public bool GetStateOfSpecificCell(int row, int col)
         {
-            return coords.State = true;
+            return boardState[row, col];
         }
 
-        public bool GetStateOfParticularCellCoordinates(Coordinates coords)
+        public bool SwitchStateOfCell(int row, int col)
         {
-            return coords.State;
+            if (boardState[row, col] == isCellChecked)
+                boardState[row, col] = true;
+            else
+                boardState[row, col] = isCellChecked;
+
+            return boardState[row, col];
         }
+
 
         //public void DisplayBoard()
         //{
-        //    for (int row = 0; row < boardState.GetLength(1); row++)
+        //    for (int row = 0; row < Rows; row++)
         //    {
         //        string row1 = "| ";
         //        string row2 = "";
 
-        //        for (int col = 0; col < boardState.GetLength(0); col++)
+        //        for (int col = 0; col < Columns; col++)
         //        {
         //            row1 = row1 + boardState[row, col] + " | ";
         //            row2 += "+---";

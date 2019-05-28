@@ -12,10 +12,9 @@ namespace GameOfLife
         {
             var board = new GameBoard();
 
-            board.SetAllBoardCoordAndStateAsFalse();
-          //  board.DisplayBoard();
-
-         
+            board.SetSetAllBoardStatesToFalse();
+            //  board.DisplayBoard();
+            Console.WriteLine(board.boardState[5, 4]);
         }
     }
 }
