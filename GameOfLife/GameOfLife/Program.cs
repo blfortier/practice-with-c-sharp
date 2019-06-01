@@ -11,10 +11,7 @@ namespace GameOfLife
         static void Main(string[] args)
         {
             var board = new GameBoard();
-
-            board.SetSetAllBoardStatesToFalse();
-            //  board.DisplayBoard();
-            Console.WriteLine(board.boardState[5, 4]);
+            board.boardState[5, 6] = true;
         }
     }
 }
