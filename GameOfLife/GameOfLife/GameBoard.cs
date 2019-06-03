@@ -12,9 +12,10 @@ namespace GameOfLife
         public const int Columns = 15;
         public bool[,] boardState = new bool[Rows, Columns];
         public bool isCellChecked = false;
-        // public List<int> activeCells = new List<int>();
+        public List<int> activeCells = new List<int>();
         public int neighborCount = 0;
-
+        private int _lastColumn = Columns - 1;
+        private int _lastRow = Rows - 1;
 
         public GameBoard()
         {
@@ -26,7 +27,7 @@ namespace GameOfLife
         }
 
 
-        public bool GetStateOfSpecificCell(int row, int col)
+        public bool GetStateOfCell(int row, int col)
         {
             return boardState[row, col];
         }
@@ -42,23 +43,23 @@ namespace GameOfLife
             return boardState[row, col];
         }
 
-        public int CountAllHorizontalNeighborsOfActiveCell(int row, int col)
+        public int CountHorizontalNeighborsOfCell(int row, int col)
         {
             int horizontalNeighborCount = 0;
 
-            if (col == 0)
+            if (col == 0 )
             {
                 if (boardState[row, col + 1] == true)
                     horizontalNeighborCount++;
             }
-            else if (col == GameBoard.Columns - 1)
+            else if (col == _lastColumn)
             {
                 if (boardState[row, col - 1] == true)
                     horizontalNeighborCount++;
             }
             else
             {
-                // horz
+                // horizontal
                 if (boardState[row, col - 1] == true)
                     horizontalNeighborCount++;
                 if (boardState[row, col + 1] == true)
@@ -68,8 +69,7 @@ namespace GameOfLife
             return horizontalNeighborCount;
         }
         
-
-        public int CountAllVerticalNeighborsOfActiveCell(int row, int col)
+        public int CountVerticalNeighborsOfCell(int row, int col)
         {
             int verticalNeighborCount = 0;
 
@@ -78,170 +78,180 @@ namespace GameOfLife
                 if (boardState[row + 1, col] == true)
                     verticalNeighborCount++;
             }
-            else if (row == GameBoard.Rows - 1)
+            else if (row == _lastRow)
             {
                 if (boardState[row - 1, col] == true)
                     verticalNeighborCount++;
             }
             else
             {
-                // vert
+                // vertical
                 if (boardState[row - 1, col] == true)
-                    neighborCount++;
+                    verticalNeighborCount++;
                 if (boardState[row + 1, col] == true)
-                    neighborCount++;
+                    verticalNeighborCount++;
             }
 
             return verticalNeighborCount;
         }
 
 
-        public int CountAllDiagonalNeighorsOfActiveCell(int row, int col)
+        public int CountDiagonalNeighorsOfCell(int row, int col)
         {
-            int diagonalNeighborCOunt = 0;
+            int diagonalNeighborCount = 0;
+            int lastColumn = _lastColumn;
+            int lastRow = _lastRow;
 
-            if (boardState[row, col] == true)
+            if (col == 0)
             {
-                if (col == 0)
-                {
-                    if (row == 0)
-                    {
-                        if (boardState[row + 1, col + 1] == true)
-                            neighborCount++;
-                    }
-                    else if (row == GameBoard.Rows - 1)
-                    {
-                        if (boardState[row - 1, col + 1] == true)
-                            neighborCount++;
-                    }
-                    else
-                    {
-                        if (boardState[row + 1, col + 1] == true)
-                            neighborCount++;
-                        if (boardState[row - 1, col + 1] == true)
-                            neighborCount++;
-                    }
-                }
-                else if (col == GameBoard.Columns - 1)
-                {
-                    if (boardState[row - 1, col - 1] == true)
-                        neighborCount++;
-                    if (boardState[row - 1, col + 1] == true)
-                        neighborCount++;
-                }
-                else if (row == 0)
+                if (row == 0)
                 {
                     if (boardState[row + 1, col + 1] == true)
-                        neighborCount++;
-                    if (boardState[row + 1, col - 1] == true)
-                        neighborCount++;
+                        diagonalNeighborCount++;
                 }
-                else if (row == GameBoard.Rows - 1)
+                else if (row == _lastRow)
                 {
-                    if (boardState[row - 1, col - 1] == true)
-                        neighborCount++;
                     if (boardState[row - 1, col + 1] == true)
-                        neighborCount++;
+                        diagonalNeighborCount++;
                 }
                 else
                 {
-                    // diag left
-                    if (boardState[row - 1, col - 1] == true)
-                        neighborCount++;
-                    if (boardState[row + 1, col + 1] == true)
-                        neighborCount++;
-
-                    // diag right
                     if (boardState[row - 1, col + 1] == true)
-                        neighborCount++;
-                    if (boardState[row + 1, col - 1] == true)
-                        neighborCount++;
+                        diagonalNeighborCount++;
+                    if (boardState[row + 1, col + 1] == true)
+                        diagonalNeighborCount++;
+
                 }
-
             }
-
-
-
-            return diagonalNeighborCOunt;
-        }
-
-        public int CountActiveNeightborsOfActiveCell(int row, int col)
-        {
-
-        if (boardState[row, col] == true)
-        {
-            if (col == 0)
+            else if (col == _lastColumn)
             {
-                // vert
-                if (boardState[row - 1, col] == true)
-                    neighborCount++;
-                if (boardState[row - 1, col] == true)
-                    neighborCount++;
-
-                // horz
-                if (boardState[row, col + 1] == true)
-                    neighborCount++;
-
-                // diag left
+                if (row == 0)
+                {
+                    if (boardState[row + 1, col - 1])
+                        diagonalNeighborCount++;
+                }
+                else if (row == _lastRow)
+                {
+                    if (boardState[row - 1, col - 1] == true)
+                        diagonalNeighborCount++;
+                }
+                else
+                {
+                    if (boardState[row - 1, col - 1] == true)
+                        diagonalNeighborCount++;
+                    if (boardState[row + 1, col - 1] == true)
+                        diagonalNeighborCount++;
+                }              
+            }
+            else if (row == 0)
+            {
+                
                 if (boardState[row + 1, col + 1] == true)
-                    neighborCount++;
-
-                // diag right
+                    diagonalNeighborCount++;
+                if (boardState[row + 1, col - 1] == true)
+                    diagonalNeighborCount++;
+            }
+            else if (row == _lastRow)
+            {
+                if (boardState[row - 1, col - 1] == true)
+                    diagonalNeighborCount++;
                 if (boardState[row - 1, col + 1] == true)
-                    neighborCount++;
+                    diagonalNeighborCount++;
             }
             else
             {
-                // vert
-                if (boardState[row - 1, col] == true)
-                    neighborCount++;
-                if (boardState[row + 1, col] == true)
-                    neighborCount++;
-
-                // horz
-                if (boardState[row, col - 1] == true)
-                    neighborCount++;
-                if (boardState[row, col + 1] == true)
-                    neighborCount++;
-
                 // diag left
                 if (boardState[row - 1, col - 1] == true)
-                    neighborCount++;
+                    diagonalNeighborCount++;
                 if (boardState[row + 1, col + 1] == true)
-                    neighborCount++;
+                    diagonalNeighborCount++;
 
                 // diag right
                 if (boardState[row - 1, col + 1] == true)
-                    neighborCount++;
+                    diagonalNeighborCount++;
                 if (boardState[row + 1, col - 1] == true)
-                    neighborCount++;
-            }              
-        }
-           
-        return neighborCount;
-    }
+                    diagonalNeighborCount++;
+            }
 
-        public void CheckIfCellHasDeathBySolitude()
+            return diagonalNeighborCount;
+        }
+
+        public int CountActiveNeighborsOfCell(int row, int col)
         {
+            int vertical = CountVerticalNeighborsOfCell(row, col);
+            int horizontal = CountHorizontalNeighborsOfCell(row, col);
+            int diagonal = CountDiagonalNeighorsOfCell(row, col);
 
+            neighborCount = vertical + horizontal + diagonal;
+
+            return neighborCount;
         }
+
+        public bool DetermineNextStateOfCell(int row, int col)
+        {
+            int neighbors = CountActiveNeighborsOfCell(row, col);
+
+            if (boardState[row, col] == true)
+            {
+                // each cell with one or no neighbors dies, as if by solitude.
+                if (neighbors <= 1)
+                {
+                    if (boardState[row, col] == true)
+                        SwitchStateOfCell(row, col);
+                }
+
+                // each cell with four or more neighbors dies, as if by overpopulation.
+                if (neighbors >= 4)
+                {
+                    if (boardState[row, col] == true)
+                        SwitchStateOfCell(row, col);
+                }
+
+                // each cell with two or three neighbors survives.
+                if (neighbors == 2 || neighbors == 3)
+                {
+                    if (boardState[row, col] == false)
+                        SwitchStateOfCell(row, col);
+                }
+            }
+            else if (boardState[row, col] == false)
+            {
+                if (neighbors == 3)
+                    SwitchStateOfCell(row, col);
+            }
+
+            return GetStateOfCell(row, col);
+        }
+
+
+        /*
+        For a space that is 'populated':
+            Each cell with one or no neighbors dies, as if by solitude.
+            Each cell with four or more neighbors dies, as if by overpopulation.
+            Each cell with two or three neighbors survives.
+        For a space that is 'empty' or 'unpopulated'
+            Each cell with three neighbors becomes populated.      
+        */
+
 
 
         //public List<int> GetAllActiveCellsInBoard()
         //{
-        //    for (int row = 0; row < GameBoard.Rows; row++)
+        //    for (int row = 0; row < _lastColumn; row++)
         //    {
-        //        for (int col = 0; col < GameBoard.Columns; col++)
+        //        for (int col = 0; col < _lastRow; col++)
         //        {
-        //            if (GetStateOfSpecificCell(row, col) == true)
+        //            if (GetStateOfCell(row, col) == true)
         //            {
-
+        //                activeCells.Add(row);
+        //                activeCells.Add(col);
         //            }
         //        }
         //    }
 
         //    return activeCells;
         //}
+
 
         //public void DisplayBoard()
         //{
