@@ -242,20 +242,23 @@ namespace GameOfLife.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
+
         //[Test]
-        //public void CheckBoardForActiveCells_ReturnListOfActiveCells()
-        //{
-        //    _gameBoard.SwitchStateOfCell(6, 5);
-        //    _gameBoard.SwitchStateOfCell(2, 10);
-        //    _gameBoard.SwitchStateOfCell(13, 7);
+        public void CheckBoardForActiveCells_ReturnListOfActiveCells()
+        {
+            _gameBoard.SwitchStateOfCell(6, 5);
+            _gameBoard.SwitchStateOfCell(2, 10);
+            _gameBoard.SwitchStateOfCell(13, 7);
 
-        //    List<int> returnedBoard = new List<int> { 6, 5, 2, 10, 13, 7 };
+            List<int> returnedBoard = new List<int>();
 
-        //    var expected = returnedBoard;
-        //    var actual = _gameBoard.GetAllActiveCellsInBoard();
-        //    Assert.AreEqual(expected, actual);
+           // returnBoard.Add();
 
-        //}
+            var expected = returnedBoard;
+            var actual = _gameBoard.GetAllActiveCellsInBoard();
+            Assert.AreEqual(expected, actual);
+
+        }
 
 
         //    [Test]
@@ -274,11 +277,3 @@ namespace GameOfLife.UnitTests
     }
 }
 
-/*
-For a space that is 'populated':
-    Each cell with one or no neighbors dies, as if by solitude.
-    Each cell with four or more neighbors dies, as if by overpopulation.
-    Each cell with two or three neighbors survives.
-For a space that is 'empty' or 'unpopulated'
-    Each cell with three neighbors becomes populated.      
-*/

@@ -12,7 +12,7 @@ namespace GameOfLife
         public const int Columns = 15;
         public bool[,] boardState = new bool[Rows, Columns];
         public bool isCellChecked = false;
-        public List<int> activeCells = new List<int>();
+        public List<int[]> activeCells = new List<int[]>();
         public int neighborCount = 0;
         private int _lastColumn = Columns - 1;
         private int _lastRow = Rows - 1;
@@ -235,22 +235,27 @@ namespace GameOfLife
 
 
 
-        //public List<int> GetAllActiveCellsInBoard()
-        //{
-        //    for (int row = 0; row < _lastColumn; row++)
-        //    {
-        //        for (int col = 0; col < _lastRow; col++)
-        //        {
-        //            if (GetStateOfCell(row, col) == true)
-        //            {
-        //                activeCells.Add(row);
-        //                activeCells.Add(col);
-        //            }
-        //        }
-        //    }
+        public List<int[]> GetAllActiveCellsInBoard()
+        {
+            int[] indexes;
+            for (int row = 0; row < _lastColumn; row++)
+            {
+                for (int col = 0; col < _lastRow; col++)
+                {
+                    if (GetStateOfCell(row, col) == true)
+                    {
+                        indexes = new int[2];
+                        indexes[0] = row;
+                        indexes[1] = col;
+                        activeCells.Add(indexes);
+                       // activeCells.Add(row);
+                      //  activeCells.Add(col);
+                    }
+                }
+            }
 
-        //    return activeCells;
-        //}
+            return activeCells;
+        }
 
 
         //public void DisplayBoard()

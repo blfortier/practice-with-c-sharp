@@ -11,18 +11,23 @@ namespace GameOfLife
         static void Main(string[] args)
         {
             var board = new GameBoard();
-            board.boardState[8, 5] = true;
-            board.boardState[10, 5] = true;
+         //   board.boardState[8, 5] = true;
+         //   board.boardState[10, 5] = true;
 
-            Console.WriteLine(board.GetStateOfCell(8, 5));
-            Console.WriteLine(board.GetStateOfCell(8, 7));
-            Console.WriteLine(board.GetStateOfCell(10, 5));
-            Console.WriteLine(board.GetStateOfCell(10, 7));
+            board.SwitchStateOfCell(6, 5);
+            board.SwitchStateOfCell(2, 10);
+            board.SwitchStateOfCell(13, 7);
 
-            //     int result = board.CountDiagonalNeighorsOfCell(9, 6);
+            //     int result = board.CountDiagonalNeig
+           // board.GetAllActiveCellsInBoard();
 
-            int result = board.CountVerticalNeighborsOfCell(9, 5);
-            Console.WriteLine(result);
+            foreach (var item in board.GetAllActiveCellsInBoard())
+            {
+                Console.WriteLine("[{0}, {1}]", item[0], item[1]);
+            }
+
+            //int result = board.CountVerticalNeighborsOfCell(9, 5);
+            //Console.WriteLine(result);
         }
     }
 }
