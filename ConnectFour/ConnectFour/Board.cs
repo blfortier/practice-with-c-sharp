@@ -395,98 +395,17 @@ namespace ConnectFour
         {
             Colors state = board[row, col];
 
-            if (col <= 2 && row > 2)
+            if (col >= 3 && row >= 3)
             {
                 if (board[row - 1, col + 1] == state && board[row - 2, col + 2] == state && board[row - 3, col + 3] == state)
                     return true;
             }
-            else if (col >= 3 && row > 2)
+            else if (col >= 3 && row <= 3)
             {
                 if (board[row - 1, col - 1] == state && board[row - 2, col - 2] == state && board[row - 3, col - 3] == state)
                     return true;
             }
-            else if (row)
-
             return false;
-
-            //    int diagonalNeighborCount = 0;
-            //    int lastColumn = board.GetLength(0);
-            //    int lastRow = board.GetLength(1);
-
-            //    if (col == 0)
-            //    {
-            //        if (row == 0)
-            //        {
-            //            if (board[row + 1, col + 1] == state)
-            //                diagonalNeighborCount++;
-            //        }
-            //        else if (row == lastRow)
-            //        {
-            //            if (board[row - 1, col + 1] == state)
-            //                diagonalNeighborCount++;
-            //        }
-            //        else
-            //        {
-            //            if (board[row - 1, col + 1] == state)
-            //                diagonalNeighborCount++;
-            //            if (board[row + 1, col + 1] == state)
-            //                diagonalNeighborCount++;
-
-            //        }
-            //    }
-            //    else if (col == lastColumn)
-            //    {
-            //        if (row == 0)
-            //        {
-            //            if (board[row + 1, col - 1] == state)
-            //                diagonalNeighborCount++;
-            //        }
-            //        else if (row == lastRow)
-            //        {
-            //            if (board[row - 1, col - 1] == state)
-            //                diagonalNeighborCount++;
-            //        }
-            //        else
-            //        {
-            //            if (board[row - 1, col - 1] == state)
-            //                diagonalNeighborCount++;
-            //            if (board[row + 1, col - 1] == state)
-            //                diagonalNeighborCount++;
-            //        }
-            //    }
-            //    else if (row == 0)
-            //    {
-
-            //        if (board[row + 1, col + 1] == state)
-            //            diagonalNeighborCount++;
-            //        if (board[row + 1, col - 1] == state)
-            //            diagonalNeighborCount++;
-            //    }
-            //    else if (row == lastRow)
-            //    {
-            //        if (board[row - 1, col - 1] == state)
-            //            diagonalNeighborCount++;
-            //        if (board[row - 1, col + 1] == state)
-            //            diagonalNeighborCount++;
-            //    }
-            //    else
-            //    {
-            //        // diag left
-            //        if (board[row - 1, col - 1] == state)
-            //            diagonalNeighborCount++;
-            //        if (board[row + 1, col + 1] == state)
-            //            diagonalNeighborCount++;
-
-            //        // diag right
-            //        if (board[row - 1, col + 1] == state)
-            //            diagonalNeighborCount++;
-            //        if (board[row + 1, col - 1] == state)
-            //            diagonalNeighborCount++;
-            //    }
-
-
-            //return (diagonalNeighborCount >= 4) ? true : false;
-
         }
     }
 }

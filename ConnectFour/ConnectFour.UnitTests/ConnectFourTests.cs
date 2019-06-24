@@ -14,7 +14,7 @@ namespace ConnectFour.UnitTests
     {
         public Colors[,] _board;
         public int Rows = 6;
-        public int Columns = 6;
+        public int Columns = 7;
 
         Colors Gray = Colors.Gray;
         Colors Red = Colors.Red;
